@@ -39,10 +39,7 @@ public class Calculadora : MonoBehaviour
             }
         }else
         {
-            if (igualPulsado)
-            {
-                igualPulsado = false;
-            }
+            
             if (lastOperation==0)
             {
 
@@ -56,7 +53,7 @@ public class Calculadora : MonoBehaviour
 
     }
 
-    bool igualPulsado = false;
+    //bool igualPulsado = false;
     public void opera(int operation)
     {
         if (operation==5 && lastOperation == 5)
@@ -70,61 +67,60 @@ public class Calculadora : MonoBehaviour
         {
                 case 0://no hay operación
 
-                if (igualPulsado)
-                {
+              
+                acumulador = float.Parse(textoResultado.text);
+                textoResultado.text = "0";
 
-                }
-                else
-                {
-                    acumulador = float.Parse(textoResultado.text);
-                    textoResultado.text = "0";
-
-                }
+                
 
 
                 break;
                 case 1://suma +
                 acumulador += float.Parse(textoResultado.text);
-                textoResultado.text = acumulador.ToString();
+                //textoResultado.text = acumulador.ToString();
+                
                 break;
 
                 case 2://resta -
                 acumulador -= float.Parse(textoResultado.text);
-                textoResultado.text = acumulador.ToString();
+                //textoResultado.text = acumulador.ToString();
+                
                 break;
                 case 3://multiplica *
                 acumulador *= float.Parse(textoResultado.text);
-                textoResultado.text = acumulador.ToString();
+                //textoResultado.text = acumulador.ToString();
+                
                 break;
                 case 4:// divide /
                 acumulador /= float.Parse(textoResultado.text);
-                textoResultado.text = acumulador.ToString();
-                break;
+                //textoResultado.text = acumulador.ToString();
                 
-
-
+                break;
+               
                 default://solucion guarda el acumulador
 
                 acumulador = float.Parse(textoResultado.text);
-                textoResultado.text = "0";
-
+                //textoResultado.text = acumulador.ToString();
+                
                 break;
 
 
 
         }
+        textoResultado.text = "0";//borra la caja de texto para no acumular datos pasados
+
         if (operation == 5)
         {
-            
+            textoResultado.text = acumulador.ToString();
             //lastOperation = 0;
-            igualPulsado = true;
+            //igualPulsado = true;
         }
         else
         {
-            igualPulsado = false;
+            //igualPulsado = false;
 
         }
-            lastOperation = operation;
+        lastOperation = operation;
     }
 
 
