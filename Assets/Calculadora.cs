@@ -107,7 +107,6 @@ public class Calculadora : MonoBehaviour
 
 
         }
-        textoResultado.text = "0";//borra la caja de texto para no acumular datos pasados
 
         if (operation == 5)
         {
@@ -117,6 +116,7 @@ public class Calculadora : MonoBehaviour
         }
         else
         {
+            textoResultado.text = "0";//borra la caja de texto para no acumular datos pasados
             //igualPulsado = false;
 
         }
